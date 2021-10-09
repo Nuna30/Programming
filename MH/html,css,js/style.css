@@ -1,0 +1,23 @@
+header{
+    border-bottom:1px black solid;
+    padding : 10px;
+}
+nav{
+    float : left;
+    border-right : 1px solid black;
+    width : 100px ;
+    height : 1000px ;
+    padding-right : 30px;
+}
+fruit h2{
+    height : 100px;
+    padding-left : 200px;
+    padding-top : 50px;
+}
+.apple {
+    float : left;
+    width : 500px;
+}
+text a1,a2,a3,a4,a5,a6,a7{
+    height : 100px;
+}

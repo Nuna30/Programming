@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+            .row1{
+                background-color:#2D46B9;
+                height:100px;
+            }
+            .row2{
+                border-bottom:1px solid lightgray;
+                height:50px;
+            }
+            .row2:after{
+                content:"";
+                display:block;
+                clear:both;
+            }
+            .row2 .col1{
+                width:100px;
+                float:left;
+                height:50px;
+            }
+            .row2 .col2{
+                background-color:skyblue;
+                width:100px;
+                float:left;
+                height:50px;
+            }
+            .row2 .col3{
+                border-right : 1px soild red;
+                background-color:tan;
+                width:100px;
+                float:left;
+                height:50px;
+            }
+            .row2 .col4{
+                height:50px;
+            }
+            .row3{height :400px;border-bottom:#C8C6C6;}
+            .row3 .col1{
+                background-color : #C8C6C6;
+                height : 400px;
+                width:280px;
+            }
+            .row3 .col2{
+                height:400px;
+            }
+            .row3:after{
+                display:block;
+                content:"";
+                clear:both;
+            }
+            .row4{
+                border-top: 1px soild #C8C6C6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="layout">
+                <div class="row1">1</div>
+                <div class="row2">
+                    <div class="col1">1</div>
+                    <div class="col2">1</div>
+                    <div class="col3">1</div>
+                    <div class="col4">1</div>
+                </div>
+                <div class="row3">
+                    <div class="col1">1</div>
+                    <div class="col2">1</div>
+                </div>
+                <div class="row4">1</div>
+        </div>
+    </body>
+</html>

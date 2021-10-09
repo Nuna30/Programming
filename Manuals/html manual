@@ -1,0 +1,402 @@
+[ 목차 ]
+
+    < HTML 이란? >
+        1. HyperText Markup Language
+        2. Markup이란?
+
+    < 주석 >
+        0.내용
+
+    < 태그 >
+
+        1. tag란?
+        2. 닫는 태그가 없는 태그
+        3. 속성과 속성값
+            3-1 id, class 속성
+            3-2 style 속성
+    < body >
+        1. <br>
+        2. <p>
+        3. <b>
+        4. <i>
+        5. <h1>, <h2>, <h3>, ...
+        6. <a>
+        7. <img>
+        8. <table>
+                8-1 기본
+                8-2 제목 줄
+                8-3 셀 병합
+        9. <div>
+        10. <span>
+        11. <ul>, <ol>, <li>
+        12. <form>
+            12-1 <input>
+            12-2 <select>, <option>
+    <head>
+        1. <title>
+        2. <meta>
+                2-1 <meta charset="utf-8">
+        3. 그 외
+
+
+---------------------------------------------------------------------------------------------------------------
+
+
+
+< HTML 이란? >
+
+    1. HyperText Markup Language
+
+        HyperText : 텍스트 그 이상의, 링크같은 개념이 포함된 텍스트.
+        Markup : <,> 로 이루어진 태그를 사용하는 규격
+
+    2. Markup이란?
+
+        <apple>로 시작
+        </apple>로 종료
+        <apple a=1
+
+
+
+
+
+< 주석 >
+
+    <!--로 시작
+    -->로 끝
+
+
+
+
+
+< 태그 >
+
+    1. tag란?
+
+        <html>, <head>, <body> 등등 꺽쇠 안에 들어가는 것들.
+        일반적인 마크업 언어는 태그 이름을 사용자가 지정.
+        특별하게도 html은 태그의 이름이 규칙으로 정해짐. (내가 만들 수도 있는 듯.)
+
+    2. 닫는 태그가 없는 태그
+
+        <br>, <img>, <meta>, <link>, <input>, <hr>, ...
+        왜 안 닫을까? : 태그 내부에 넣을 값이 없기 때문에 닫을 필요가 없다.
+
+    3. 속성과 속성값
+
+        <link type="text/css" href="style.css">
+        <태그이름 속성=속성값 속성=속성값>
+
+        3-1 id, class 속성
+
+            css와 js에서 태그를 쉽게 다루기 위해 쓰는 속성.
+            둘의 차이점 : 1 id 1 tag, 1class 1+n tag
+            불러오는 방법.
+
+            .아이디명
+            #클래스명 
+
+        3-2 style 속성
+
+            html 자체 기능이라기 보다는 css의 속성들을 html에서 직접 쓸 때 사용.
+
+            ex)
+            
+            <div style="width:500px; height:300px"></div>
+            <div style="height:40px; border:1px soild green">mybox</div>
+
+
+
+
+
+< body >
+    
+    문서의 몸통을 나타냄.
+    <head>와 대조적.
+    브라우저 화면에 보이는 것들이 주를 이룸.
+
+    1. <br>
+
+        대표적인 닫을 필요가 없는 태그.
+        줄을 바꿀 때 사용.
+        줄을 바꾸다가 영어로 break line.
+        break의 br을 따온 듯.
+        
+        ex)
+        the first line<br>the second line
+
+    2. <p>
+
+        문단을 만들 때 사용
+        paragraph의 약자.
+
+        ex)
+        <p>first paragraph</p>
+        <p>second paragraph</p>
+
+        출력 결과)
+        first paragraph
+
+        second paragraph
+
+    3. <b>
+
+            글자를 굵게 표시함.
+            최근에는 <b>보다는 <strong>을 권고하고 있음.
+            css에서 font-weight를 bold로 설정하는 것과 같음.
+
+    4. <i>
+
+            글자를 기울임.
+            italic의 약자.
+            css에서 font-style을 italic으로 설정하는 것과 같음.
+
+    5. <h1>, <h2>, <h3>, ...
+
+            섹션, 문단의 제목을 나타낼 때 사용
+            오름차순으로 글자가 작아짐.
+            글자만 달라지는 게 아니라 봇(컴퓨터나 검색엔진)이 문서를 파악할 때 쓰이므로 적재적소에 사용하자.
+
+    6. <a>
+
+            하이퍼 링크를 걸어줌.
+            두 개의 속성이 있다.
+                href : 클릭 시 이동할 링크
+                target : 링크를 열었을 때
+                        _self : 현재 페이지(기본값)
+                        _blank : 새 탭 
+
+            ex)
+            <a href="http://www.naver.com" target=_blank>네이버로 이동</a>
+
+    7. <img>
+
+            이미지 삽입하는 태그
+            대표적인 속성
+                src : 이미지 링크(url)
+                width : 가로
+                height : 세로
+
+            ex)
+            <img src="우클릭 url 복사 붙여넣기" width="100" height="100">
+
+            가로 세로 숫자값이 문자열임을 유의.
+            제대로 링크를 걸지 않으면 엑박이 뜸.
+
+    8. <table>
+
+            표를 만듦.
+            예전에는 이 태그로 레이아웃을 구성함. 이젠 div로 구성.
+
+            8-1 기본
+
+                tr로 행, td로 열을 표현.
+
+                ex)
+
+                <table>
+	                <tr>
+		                <td>섹션1</td>
+		                <td>섹션2</td>
+	                </tr>
+	                <tr>
+		                <td>섹션3</td>
+		                <td>섹션4</td>
+	                </tr>
+	                <tr>
+		                <td>섹션4</td>
+		                <td>섹션5</td>
+	                </tr>
+                </table>
+
+
+                실행결과)        
+
+                    섹션1	섹션2
+                    섹션3	섹션4
+                    섹션4	섹션5
+
+            8-2 제목 줄
+
+                <thead>, <tbody>, <th> 태그로 제목 줄을 표현할 수 있음.
+
+                실행결과)
+
+                    학교	창립년도
+                    서울대학교	1946        표현이 안 되었지만 학교와 창립년도가 굵은 폰트인, 제목 줄임.
+                    고려대학교	1905
+                    연세대학교	1885
+
+                ex)
+
+                <table>
+	                <thead>
+		                <tr>
+			                <th>학교</th>
+			                <th>창립년도</th>
+		                </tr>
+	                </thead>
+	                <tbody>
+		                <tr>
+			                <td>서울대학교</td>
+			                <td>1946</td>
+		                </tr>
+		                <tr>
+			                <td>고려대학교</td>
+			                <td>1905</td>
+		                </tr>
+		                <tr>
+			                <td>연세대학교</td>
+			                <td>1885</td>
+		                </tr>
+	                </tbody>
+                </table>
+
+            8-3 셀 병합
+
+                1x2 or 2x1 등의 셀을 만들고 싶을 때 사용.
+                colspan은 좌우로 확장,
+                rowspan은 상하로 확장.
+
+                ex)
+
+                <table>
+	                <tr>
+		                <td colspan="2">2x1 셀</td>
+	                </tr>
+	                <tr>
+		                <td>1x1 셀</td>
+		                <td>1x1 셀</td>
+	                </tr>
+                </table>
+
+                출력 결과)
+
+                   2x1 셀
+                1x1 셀 1x1 셀
+
+    9. <div>
+
+            Division의 약자
+            가상의 레이아웃을 설계하는 데 사용.
+            주로 css와 연동함.
+
+            ex)
+            
+            <html>
+	            <body>
+		            <div style="background-color:cyan">구역1</div>
+		            <div style="width:100px; height:100px; background-color:#CF0">구역2</div>
+	            </body>
+            </html>
+
+            내가 알아낸 div 규칙
+
+              1. float규칙이 적용되지 않고 위에서 아래로 차곡차곡 쌓인다.
+                2. 만약 설계된 레이아웃의 크기를 벗어날 정도로 글자를 많이 쓰면 글자가 삐져나온다.
+                3. 레이아웃을 너비 100 높이 500으로 하고 글자 "타이틀"과 style로 border-bottom을 해보았다.
+                   그러자 border가 레이아웃을 벗어나지 않고 레이아웃 오른쪽 끝에서 끊겨 버렸다.
+                4. 창 안에서 레이아웃이 설정되지 않은 곳은 활용할 방법이 없는 것 같다.
+
+    10. <span>
+            
+            div와 같이 레이아웃을 나눈다.
+            div는 display 속성이 block이고 span은 inline이다.
+
+            알아낸 규칙들.    
+
+                1. 크기를 바꿀 수 없다.
+                2. 글자를 아무리 많이 집어 넣어도 줄이 바뀌지 않는다.
+                3. 글자 크기가 바뀌면 span 효과가 사라진다.
+
+            왜 사용하는 걸까?
+
+    11. <ul>, <ol>, <li>
+
+            <ul>과 <ol>은 목록을 만든다.
+            <ul>은 순서없는 목록, <ol>은 순서있는(번호가 매겨지는) 목록.
+            <ul>과 <ol>은 반드시 <li>와 함께 쓰여야 한다.
+
+            ex)
+            <ol>
+                <li>목록1</li>
+                <li>목록2</li>
+            </ol>
+        
+
+    12. <form>
+        
+        사용자가 웹사이트에서 상호작용하여 정보를 서버로 보내는 등의 행동을 가능케 하는 태그.
+        <form>은 header처럼 전체 양식이다.
+        <form>에는 많은 태그들이 있다.
+
+        12-1 <input>
+
+            사용자가 양식을 입력하는 태그는 <input>인데 이 부분은 필요할 때마다 밑의 링크에서 보도록 하자.
+            https://ofcourse.kr/html-course/form-%ED%83%9C%EA%B7%B8
+
+        12-2 <select>, <option>
+            
+            버튼을 눌러 축약된 내용을 펼치거나 접을 수 있는 드롭다운 리스트를 만드는 태그.
+
+            ex)
+            
+            <select>
+	            <option value="ktx">KTX</option>
+	            <option value="itx">ITX 새마을</option>
+	            <option value="mugung">무궁화호</option>
+            </select>
+
+            https://developer.mozilla.org/ko/docs/Web/HTML/Element/select
+            위 링크에 좋게 설명되어 있다.
+
+
+<head>
+    
+    문서의 머리를 나타냄.
+    브라우저를 직접적으로 표현 x
+    웹사이트 뒷면의 데이터들을 정의하는 태그들이 들어감.
+
+    <title>, <meta>, <link>, <style>, <script>, ... 등이 들어감.
+
+    1. <title>
+        
+        브라우저의 탭의 내용을 바꿀 수 있음.
+        <title>내용</title>
+
+        검색엔진 등에서 가장 크게 보여지는 텍스트이므로
+        페이지의 특성을 제일 잘 드러내는 제목을 선정할 것.
+
+    2. <meta>
+
+        웹페이지에서 숨어있는 수많은 정보들을 제공하려 할 때 사용하는 태그.
+        내가 이 웹페이지를 어떻게 생각하고, 어떤 목적으로, 계획을 했는지 표현.
+        굉장히 많은 속성들이 있으며 검색엔진이나 웹 크롤링할 때 등에서 적극적으로 활용될 것임.
+
+        메타는 "after", "beyond", " with", "adjacent", "self" 등의 의미로 사용되는 그리스어 접두사에서
+        유래했다. 오랜시간이 지나 영어권에서는 철학적인 개념으로 발전되었다. 
+        '~너머' 말고도 '가상의' 등등 여러 뜻이 있다.
+
+        https://ofcourse.kr/html-course/meta-%ED%83%9C%EA%B7%B8
+        ofcourse의 메타태그 설명.
+
+            2-1 <meta charset="utf-8">
+            
+                utf-8은 인코딩 방식이다.
+                원래는 euc-kr이라는 인코딩 방식을 사용했다.
+                영어만을 고려한 인코딩 방식 ASCII를 확장하여 한글을 사용할 수 있도록 euc-kr을 만들었었다.
+                그런데 euc-kr은 우리나라에서만 쓸 수 있도록 만들었기 때문에
+                다른 언어를 사용하는 환경에서는 한글 페이지를 제대로 볼 수 없었다.
+                이를 해결한 인코딩 방식이 utf-8이다.
+                용량은 euc-kr이 더 적지만 요즘에는 용량보다는 호환성을 고려해 utf-8을 써야한다.
+
+    3. 그 외
+        
+        그 외에도 <link>, <style> 등이 있으나 css와 같이 활용되므로 css에서 설명.
+
+----------------------------------------------------------------------------------------------------------------
+
+10/2 
+첫 작성. ofcourse 사이트를 보고 만들었다.
+
+

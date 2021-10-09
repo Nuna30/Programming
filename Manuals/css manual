@@ -1,0 +1,443 @@
+CSS http://tcpschool.com/css/css_basic_fonts
+
+< CSS란? >
+
+    1. Cascading Style Sheets
+
+        cascade : 작은 폭포, 종속, 폭포처럼 흐르다.
+        sheet : 얇은 판, 기록
+
+    2. 역할
+        
+        초기 html은 문서 뼈대를 만들고 꾸미기를 혼자 담당했다.
+        하지만 여러 문서가 공통된 디자인을 공유하면
+        하나를 수정하면 여러 문서를 전부 수정해야하는 불편함이 있었다.
+        그래서 html에서 디자인 역할을 분리시킨 것이 css다.
+        html의 원하는 태그에 디자인을 부여할 수 있다.
+
+    3. 사용법
+
+        html의 디자인을 꾸미는 방법은 세 가지가 있다.
+         
+            1. html 태그의 style 속성을 이용
+            2. <style> 태그를 사용
+            3. css 파일에서 디자인을 기술
+
+    4. 주석
+
+        /*    */
+
+
+
+
+
+< 선택자 >
+
+   css는 원하는 태그에 스타일을 부여한다.
+    이 원하는 태그를 css에선 선택자라 부른다.
+    
+    선택자 { 
+        속성 : 속성값 ;
+        속성 : 속성값 ;
+        }
+
+    1. 태그 선택자
+        
+        html에서 apple 태그에 스타일을 부여하고 싶으면
+        apple {
+            속성 : 속성값 ;
+            속성 : 속성값 ;
+              }
+
+    2. id 선택자
+
+        html에서 특정 태그에 id를 부여한 후
+        css에서 선택자를 #아이디로 사용
+        
+        <html>
+            <h1 id="apple"> 
+                ~
+
+        #apple {
+            ~
+            }
+
+    3. class 선택자
+
+        id와 같으며 선택자를 .클래스
+        또한 한 태그에 여러 클래스를 넣을 수 있다.
+        <div class="A B C D">
+
+    4. 부모 자식 선택자
+
+        fruit apple {~
+        여러 태그 속 apple 태그가 여러 개라고 하자. fruit 태그 속 apple 태그만
+        가져오고 싶을 때 사용한다.
+        선택자로 id나 class도 물론 사용할 수 있다.
+
+    5. 다중 조건 선택자
+        
+        파이썬에서 연산자와 비슷하다.
+        
+        A#B { ~ }
+        A와 #B사이 공백이 사라지면 and
+        A와 #B사이 ,를 넣어주면 or
+
+        태그와 태그는 다중 조건 선택자 (공백)으로 연결할 수 없다.
+        A태그 속 B태그가 있으면 A B{}로 하지 AB{}로 하진 않는다. 또한 AB태그라 인식한다.
+
+
+        공백 사용의
+        적절한 상황 : A태그와 B태그에 같은 클래스가 있다고 가정하자.
+                    <A class="apple">
+                    <B class="apple">
+                    내가 A태그 속 apple 클래스만 바꾸고 싶다 할 때,
+                    A.apple{~}를 사용하면 된다.
+
+    6. 가상 클래스 선택자
+
+        선택자 뒤에 :가상이벤트 를 붙이면 가상이벤트가 발생하면 선택자의 속성들이 적용된다.
+
+        :hover는 마우스를 갖다대면 발생한다.
+
+        <h1>마우스</h1>
+        h1:hover{background-color:red;}
+
+        텍스트 위에 마우스를 갖다대면 색깔이 빨강으로 변한다.
+        
+        hover 외에도 많은 가상클래스 선택자들이 존재한다.
+        필요하면 검색해서 찾아볼 것.
+
+< 속성 >
+
+    선택자를 어떻게 꾸며줄 것인가.
+    선택자 { 속성 : 속성값 }
+
+    상속 : 어떤 속성들을 상위 태그에 적용시키면 하위 태그에도 그 속성이 그대로 전달됨.
+         color, font 등이 있다.
+          속성 : inherit 강제로 부모의 속성을 받도록 해준다.
+
+    -webkit- : 웹킷은 크롬이나 사파리 등의 브라우저에 탑재된 엔진이다.
+                 속성 앞에 -webkit-이 붙어 있으면 이 속성은 웹킷을 쓰는 브라우저에서만 작동하는 속성이라는 뜻이다.
+
+    1. width, height
+
+        가로 : width, 세로 : height
+        단위는 px, %단위도 사용 가능. %로 현재 창 크기 기준 %비율로 지정할 수 있음.
+
+    2. margin, padding
+
+        margin은 바깥쪽 여백, padding은 안쪽 여백
+        둘은 border을 기준으로 나뉜다.
+
+        시계방향
+        margin:20px 상하좌우 20px
+        margin:30px 10px 상하 30px 좌우 10px
+        margin:30px 10px 20px 50px 상30 우10 하20 좌50
+        margin:30px 10px 40px 상30 좌우10 하40
+
+        오른쪽만 고르고 싶으면 margin-right
+
+    3. box-sizing
+
+        3-1. content-box
+
+            기본 박스 렌더링 방식 : content-box
+
+            (width,height)->(padding)->(border)->(margin)
+            width가 100, padding이 10, border가 5, margin이 7이면
+            총 가로 길이는 100+10*2+5*2+7*2이다.
+
+            만약 width를 100%로 했으면 padding과 border, margin이 영역을 초과하게 된다.
+            그래서 다른 박스 렌더링 방식이 있다.
+
+        3-2. border-box
+        
+            두 번째 박스 렌더링 방식 : border-box
+
+            content-box는 width에 padding, border, margin을 붙여나가는 식이었다면
+            border-box는 width에 padding과 border가 포함되어 있다.
+            width가 100, padding 10 border 5라 하면 content-box에서의 width가 여기서는 70이 된다.
+
+        3-3. box-sizing
+
+             content-box가 기본값이다.
+            
+            h1 {
+                box-sizing : border-box}
+
+    4. color
+
+            글자의 색상을 바꿈.
+            
+            표현 방식에는 4가지가 있다.
+            
+            1. red
+            2. #000 등 16진수 색상 코드
+            3. rgb(0,0,0)
+            4. rgba(200,100,150,0.5) 알파(투명도)가 적용된 rgb'a'
+
+    5. font
+
+            글자를 어떻게 할지에 관한 속성.
+
+            5-1. 작성 방법
+
+                두 가지 방법이 있다.
+
+                h1 {font : font-style font-variant font-weight font-size/line-height font-family }
+              .ex2 { font: italic bold 12px/30px Dotum, sans-serif }
+
+                h1 {
+                    font-size : ~
+                    font-weight : ~
+                    font-family : ~
+                    }
+
+            5-2. font-weight
+
+                    글자 두께
+                     400이 보통 700이 굵음. 900 더 굵음. 100얇음. 즉, 100~900사이
+
+            5-3. font-size
+
+                    글자 크기. 단위는 px   
+
+            5-4. line-height 
+        
+                    줄 간격
+
+            5-5. font-family
+    
+                    글꼴
+
+            5-6. font-style
+
+                    글꼴 스타일 (이탤릭체 등)
+
+    6. text-align
+
+        텍스트 정렬 방향 지정.
+
+        left right center justify(양쪽 정렬, 뭔진 모르겠다.)
+        text-aligh : left 왼쪽 정렬
+
+    7. background
+
+        7-1. background-color
+            
+            배경 색
+            태그의 크기가 없을 경우 배경색은 표시되지 않는다.
+            color 속성처럼 해주면 된다.
+
+        7-2. background-image
+
+            이미지를 삽입할 수 있다.
+
+            background-image:url("~");
+
+            컨테이너의 크기에 상관없이 이미지는 본래 크기를 유지한다.
+            만약 이미지가 컨테이너의 크기보다 작다면 이미지가 반복된다.
+
+            7-2-1. background-repeat
+
+                이미지의 반복여부를 지정할 수 있다.
+                background-repeat : no-repeat
+
+                no-repeat 대신 repeat-x하면 가로로 반복, y는 세로로 반복
+                그냥 repeat를 하면 가로세로 반복.
+
+            7-2-2. background-position
+            
+                이미지는 왼쪽 위부터 출력된다.
+                이 속성을 이용하면 이미지 출력 좌표를 수정할 수 있다.
+                x, y 이렇게 한 쌍을 이룬다.
+
+                px, left, right, center, top, bottom 등이 있다.
+
+                background-position: -10px center
+
+        7-3. background
+
+            한 줄로 씀.
+
+            #box{ background: #09C url('image.png') no-repeat 10px center; }
+
+    8. border
+
+        padding과 margin 사이
+
+        8-0. border
+
+            밑의 세 속성 width, style, color는 border 속성으로 한 번에 쓸 수 있다.
+
+            h1{border:10px solid red;}
+
+        8-1. border-width
+            
+            테두리 두께, px
+
+        8-2. border-style
+
+            테두리 스타일, solid, dotted, dashed, double, groove, ridge, ...
+
+        8-3. border-color
+
+            테두리 색깔, color 속성과 같은 형식.
+
+        8-4. border-direction
+
+            border-top, border-bottom, border-left, border-right, (px)
+
+        8-5. border-radius
+
+            테두리를 둥글게 만들어줌. 단위는 px, %
+
+            왼쪽 위부터 시계 방향
+            border-radius:10px 0 10px 0
+            값을 주기 싫은 곳은 0
+
+    9. visibility
+
+            태그의 가시성 결정.
+
+            visible : 보임, hidden : 숨김(영역은 그대로)
+            collapse : 겹침(테이블에만 쓸 수 있음. hidden과 무슨 차이인지 모르겠음. 별로 필요 없어 보임.)
+
+            가상 이벤트 선택자와 쓰면 재밌을 듯.
+
+    10. display
+
+        태그를 어떻게 할 것인가
+        
+        10-1. none
+
+            display:none
+            태그를 렌더링 시키지 않음. 보이지 않고 영역도 차지 안 함.
+            가상이벤트선택자와 써보는 게 어떨까
+
+        10-2. block과 inline 그리고 inline-block
+
+            block과 inline은 속성이라기 보다는 태그의 렌더링 방식이다.
+
+            block은 h나 p, div, li 등의 태그에 해당된다.
+            이들의 특징은 1. 일종의 문단같은 느낌으로 혼자서 가로 영역을 전부 차지한다.
+            2. 가로세로 크기를 정해줄 수 있다.
+            3. 크기가 작아서 block요소 오른쪽에 배치될 수 있어도 항상 다음 줄에 렌더링 된다.
+
+            inline의 특징을 가지는 태그는 span, b, i, a가 있다.
+                1. 줄바뀜이 안 된다. 가로세로를 지정할 수 없다.
+                2. 글자나 문장에 효과를 주기 위한 목적이다.
+                3. 여러 문장이 모인 페이지에 특정 부분을 굵게 하고 싶을 때 그 문장에만 b 효과를 준다.
+                    그렇게 했는데 block 요소처럼 갑자기 다음 줄부터는 줄이 자동적으로 바뀌면 안 될 노릇이다.
+
+            inline-block은 block과 inline의 중간 형태
+            속성값으로 쓰인다.
+            줄바뀜은 안 되지만 크기를 지정할 수 있다.
+            IE7 이하로는 되지 않는다.
+
+            display:inline-block;
+
+    11. float
+
+            태그를 부유시킨다.
+            left 왼쪽에 부유하는 블록박스 생성, right도 있다.
+            none 요소를 부유시키지 않음.
+        
+            left나 right을 통해 부유시키면 display을 무시한다. none은 제외.
+
+            div와 함께 쓰여 레이아웃 용으로 많이 쓰인다.
+
+            float는 수평 레이아웃을 만드는 데에 용이하다.
+            
+            
+    12. clear
+
+        float의 속성을 제거하는 데에 쓰인다.
+        left 좌측 부유 제거, right, both(양쪽 모두 제거)
+
+        ex)
+
+        <div class="box-container">
+	        <div class="box" style="float: left">박스1</div>
+	        <div class="box" style="float: right">박스2</div>
+        </div>
+        <div>박스 아래에 나타나야 하는 내용</div>
+
+        이러면 
+
+        박스1 박스2
+        박스아래에나타나야하는내용           이렇게 표시될 것 같지만 실제로는
+
+        
+        박스1 박스아래에나타나야하는내용 박스2       이렇게 표시 됨. 그러므로 clear를 사용.
+
+        <div class="box-container">
+	        <div class="box" style="float: left">박스1</div>
+	        <div class="box" style="float: right">박스2</div>
+            <div style="clear : both "></div>   이렇게 사용해야함.
+        </div>
+        <div>박스 아래에 나타나야 하는 내용</div>
+        
+
+        +) after 가상 선택자
+        
+            레이아웃 구성에서 배울 것.
+
+    13. position
+
+
+        태그의 위치를 설정.
+        left, right, top, bottom 속성과 함께 쓰임.
+        
+        13-1. static
+
+                기본값. left, ... 등으로 값을 줘도 위치가 안 바뀜.
+
+        13-2. absolute
+
+                절대좌표로 위치 선정.
+                h1 { position : absolute ; left : 30px;}
+                하면 왼쪽에서 30px 떨어져서 위치 선정.
+
+        13-3. relative
+
+                상대 좌표, 원래 있어야 할 위치를 기준으로 위치 선정.
+                h1 { position : relative ; top : 10px; right : 20px;}
+                이러면 원래 위치 기준 위에서 10px, 오른쪽에서 20px 떨어져서 위치 선정.
+
+        13-4. fixed
+
+                h1 { position : fixed ; top : 20px; right ; 30px; }
+                전체 페이지 기준(자신의 부모 태그가 있든 없든) 위에서 20px, 오른쪽에서 30px 떨어져서 위치 선정.
+
+        13-5. inherit
+   
+                부모 태그의 속성을 물려받음.
+
+    14. cursor
+
+        해당 태그 위에 위치한 마우스 커서의 모양을 바꿀 수 있음.
+        cursor : ~
+        여러 속성 값들이 있음.
+        Auto, Crosshair, Default, Pointer, Move , e-resize , ne-resize, new-resize, n-resize,
+        se-resizem, sw-resize, s-resize, w-resize, Text, Wait, Help, ...
+
+
+
+< 레이아웃 구성 >
+    
+    1. 수평 레이아웃 구성
+
+           float 와 clear를 사용하여 구성한다.
+            하나의 행(main이라 하자.)에 여러 열을 쌓을 때, 각자에게 float:left를 구성하고
+            그 행의 태그에 main:after{display:block;clear:both;content'';} 를 부여한다.
+            근데 코드 그냥 한 번 보는 게 나음.
+            
+
+    2. 
+
+        
+        
+        
+               

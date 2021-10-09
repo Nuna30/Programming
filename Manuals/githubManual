@@ -1,0 +1,221 @@
+[ 목차 ]
+
+    < 기초용어 >
+        1. commit과 push
+        2. branch
+
+    < 파일 관리 >
+        1. git init
+        2. gut add apple.html
+        3. git commit -m "new file"
+        4. git status
+        5. git remote add origin http://github.com/username/repositaryName
+        6. git push origin master
+
+    < 원격 저장소 관리 >
+        1. git remote
+        2. git remote -v
+        3. git remote add [name] [url]
+        4. git remote rm [name]
+
+    < branch 사용법 >
+        0.brach 목차
+
+    < 그 외 >
+        1. git log
+        2. git grep "원하는 단어"
+        3. git clone "url"
+        4. git reset
+    
+----------------------------------------------------------------------------------------------------------------
+
+
+
+< 기초 용어 >
+
+1. commit과 push
+
+    commit : 파일을 저장소에 저장
+    push : 파일을 원격 저장소에 업로드
+
+    ( 10/2 현재 사용해본 결과 commit도 원격 저장소에 업로드 하는 것 같음. )
+
+2. branch
+
+    지점(or 분기점) 생성
+    병렬로 코딩이 가능.
+
+
+
+< 파일 관리 >
+
+1. git init
+
+    cmd에서 cd 명령어를 통해 들어간 현재 폴더를 git 저장소로 변환한다.
+    근데 싸지방에선 cmd에 못 들어간다.... Linux, window 둘 다.
+
+2. git add apple.html (+ 인덱스)
+
+    apple.html을 인덱스에 추가한다. 
+    인덱스는 commit 하기 전 파일의 변경 내용들을 임시로 저장하는 위치다. 
+    ( 안 써봐서 잘 모르겠음)
+
+3. git commit -m "new file"
+
+    new file을 commit하는 명령어인 거 같음. 잘 모르겠음.
+
+4. git status
+
+    저장소에 파일이 추가되었는지 확인하는 명령어
+
+5. git remote add origin http://github.com/username/repositaryName
+
+    원격 저장소의 정보를 추가. 뒤의 주소는 github에 표시된 원격 저장소의 주소라 함.
+    아마 내 주소는 http://github.com/Nuna30/StudyJS 인듯?
+
+6. git push origin master
+
+    로컬 저장소의 변경 사항을 github에 있는 원격 저장소에 반영해줌.
+    github에 들어가서 잘 되었는지 확인해보자.
+
+
+
+
+< 원격 저장소 관리 >
+
+1. git remote
+
+    원격 저장소 목록 표시
+
+2. git remote -v
+
+    목록을 더 자세히 표시
+
+3. git remote add [name] [url]
+
+    원격 저장소를 생성. url은 어떻게 써야 하는가?
+
+4. git remote rm [name]
+
+    원격 저장소 제거. remove의 약자인듯.
+
+
+
+
+< branch 사용법 >  브랜치 = 지점, 분기점
+
+    목차 1. 브랜치 목록, 생성, 이동
+         2. 브랜치에서 개발
+         3. 브랜치 병합
+         4. 브랜치 삭제
+
+
+1. 브랜치 목록, 생성, 이동
+
+    1. git branch
+
+        브랜치의 목록을 살펴볼 수 있다.
+
+    2. git branch apple
+
+        apple이라는 브랜치를 생성한다.
+
+    3. git checkout apple
+        
+        apple 지점으로 이동한다.
+
+    4. git checkout -b apple
+
+        apple이라는 브랜치를 생성함과 동시에 이동.
+
+2. 브랜치에서 개발
+
+    1. 사과.html 파일 생성
+
+    2. 인덱스에 추가
+        
+        git add 사과.html
+
+    3. git 에 commit 
+
+        git commit -m "사과"    ("사과" 부분이 확실치 않다.)
+
+    4. 브랜치를 git에 푸쉬
+
+        git push [원격저장소 이름] apple
+        이로써 브랜치(apple)를 git의 원격저장소에 업로드 하였다.
+        이제 다른 사람이 이 브랜치를 가져와 코딩할 수 있다.
+
+    5. 브랜치 가져오기 (pull)
+        
+        브랜치를 가져오기 전에 apple 브랜치로 이동하자.
+        git checkout apple
+
+    6. 브랜치 코드 가져오기
+
+        apple 브랜치로 들어왔으니 코드를 끌어오면 된다.
+        git pull [원격저장소 이름] apple
+        ls로 확인해 보면 코드가 들어온 것을 볼 수 있다. (아마도...)
+   
+3. 브랜치 병합
+
+    1. git checkout master
+        
+        현재 분기를 master로 전환
+
+    2. git merge apple
+
+        apple 분기를 master에 병합.
+
+    3. git push origin master
+
+        이 사항을 git에 푸쉬
+
+4. 브랜치 삭제
+
+    1. git brach -d apple
+        
+        apple 분기를 삭제한다.
+
+    2. git branch
+
+        삭제 되었는지 확인.
+
+
+< 그 외 >
+
+1. git log
+
+    로컬 저장소의 commit history를 탐색
+    git log -n N
+        N개의 히스토리를 탐색
+
+2. git grep "원하는 단어"
+
+    저장소의 파일 내용에서 단어 검색
+    특정 단어가 포함된 파일과 단어의 위치를 알려줌.
+
+3. git clone "url"
+
+    git에 있는 원격저장소들의 파일을
+    로컬 저장소에 저장.
+
+4. git reset 
+
+    로컬 저장소의 commit을 취소하기 위해 사용
+    자세한 설명은 여기에 나와있다.
+    https://www.devpools.kr/2017/02/05/%EC%B4%88%EB%B3%B4%EC%9A%A9-git-%EB%90%98%EB%8F%8C%EB%A6%AC%EA%B8%B0-reset-revert/
+
+--------------------------------------------------------------------------------------------
+
+21.10.2
+https://tagilog.tistory.com/377 을 보고 메뉴얼 처음 작성.
+텍스트로만 설명해서 많은 부분들이 누락됨.
+싸지방에서는 cmd를 쓸 수 없어서 git 명령어들을 사용해볼 수 없었음 (ㅠㅠ)
+
+
+
+
+
+    
+
