@@ -1,0 +1,4 @@
+A,B,C=map(int,input().split())
+print(*map(int,"12345"))
+print(list(map(chr,range(97,123))))
+apple=list(map((chr,"apple")))

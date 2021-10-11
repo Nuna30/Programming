@@ -1,0 +1,2 @@
+shift+tab 탭 줄이기
+ctrl+k 이후 ctrl+c 주석처리 ctrl+u 주석처리 삭제
