@@ -1,6 +1,3 @@
-a=["a","b","c","c","c","d","a"]
-b=["a","b","c","d"]
-
-if i in b :
-    for z in a:
-        if 
+a=[0,0,1,2,3,4,5]
+a.remove(0)
+print(a)
