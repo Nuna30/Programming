@@ -1,3 +1,6 @@
-a=[0,0,1,2,3,4,5]
-a.remove(0)
+a=[i for i in range(2,1000001)]
+b=2
+while 1 :
+    a.remove(2*b)
+    b+=1
 print(a)
