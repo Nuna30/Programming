@@ -1,21 +1,12 @@
 M,N=map(int,input().split())
-prime=[2]
-p=0
-for i in range(2,N+1) :
-    # print("i",i)
-    for j in prime :
-        if i<=j*2 :
-            if i%j==0 :
-                print("i",i,"j",j)
-                p=0
-                break
-            if i%j!=0 and j==prime[-1] :
-                prime.append(i)
-                # print("j",j)
-                print(prime)
-                p=1
-                break
-    # print(p)
-    if i>=M and i<=N and p==1 :
-        print(i)
-        p=0
+
+prime_list=[True]*N # 1 2 3 4 5 6 7 8 9 10
+prime_list[0]=False
+for i in range(2,(int(N**0.5)+1)) :
+    for j in range(2*i-1,N,i) :
+        prime_list[j]=False
+prime=1
+for i in prime_list :
+    if i==True and prime>=M and prime<=N :
+        print(prime)
+    prime+=1
