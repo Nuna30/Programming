@@ -22,18 +22,10 @@ for t in range(T) :
             break
         count+=1
     prime=prime_list[:n+1]
-    if len(prime)%2==0 :
-        addr=int(len(prime)/2)
-        times=addr
-    else :
-        addr=int(len(prime)/2)
-        times=addr+1
-    for i in range(times) :
-        if prime.count(N-prime[addr])==1 :
-            if N-prime[addr]<prime[addr] :
-                print("%d %d"%(N-prime[addr],prime[addr]))
-            else :
-                print("%d %d"%(prime[addr],N-prime[addr]))
-            break
-        addr+=1
+    start=int(N/2)
+    while 1:
+      if prime.count(N-start)==1 and prime.count(start)==1:
+        print(start,N-start)
+        break
+      start-=1
 
