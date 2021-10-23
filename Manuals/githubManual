@@ -26,6 +26,8 @@
         2. git grep "원하는 단어"
         3. git clone "url"
         4. git reset
+
+    < repl에서 github으로 업로드 >
     
 ----------------------------------------------------------------------------------------------------------------
 
@@ -206,6 +208,32 @@
     자세한 설명은 여기에 나와있다.
     https://www.devpools.kr/2017/02/05/%EC%B4%88%EB%B3%B4%EC%9A%A9-git-%EB%90%98%EB%8F%8C%EB%A6%AC%EA%B8%B0-reset-revert/
 
+< repl에서 github으로 업로드 >
+
+1. repl에서 Shell로 이동
+
+2. cd로 Programmings 파일까지 이동
+
+3. git add * 
+  
+  파일을 전부 index 예비명단에 올림.
+
+4. git commit -m 하고싶은말.
+
+  변경 사항을 적용
+
+5. git push origin main
+
+  master가 안 되어서 main으로 함.
+  github에 파일을 올림.
+
+6. 이때 로그인을 하라 함.
+
+  username : Nuna30
+  password : 토큰을 써야함. 좀 귀찮음.
+    git hub에서 우측 상단 프로필 -> settings -> developer settings -> Personal access tokens -> regenerate tokes -> 복사 후 ctrl shift v 로 붙여넣기
+  
+  푸쉬 완료. 토큰은 일회용임.
 --------------------------------------------------------------------------------------------
 
 21.10.2
