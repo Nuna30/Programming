@@ -25,3 +25,6 @@ remove the file manually to continue.
 깃 사용 중 프로세스 충돌
 index.lock 파일을 삭제하면 됨.
 cd로 이동 후 rm으로 삭제
+
+push가 안 될 때 강제실행
+git push -f origin main 

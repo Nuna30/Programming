@@ -1,0 +1,4 @@
+https://docs.python.org/ko/3.8/library/itertools.html
+
+다양한 itertool이 있다
+예로 combination, count, cycle 등등...
