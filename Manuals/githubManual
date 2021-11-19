@@ -227,6 +227,8 @@
   master가 안 되어서 main으로 함.
   github에 파일을 올림.
 
+  push가 안 될 때 강제실행 git push -f origin main
+
 6. 이때 로그인을 하라 함.
 
   username : Nuna30
