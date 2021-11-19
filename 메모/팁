@@ -1,0 +1,53 @@
+21/10/3
+태그로만 레이아웃을 만들면 크기가 각자 이상해진다.
+div로 만든 레이아웃과 그냥 문단으로 만든 레이아웃을 21.10.2폴더에 넣어두었다.
+
+21/10/6
+상병 홍사장님의 헬륨코인...
+https://blog.naver.com/PostView.naver?blogId=amafigure&logNo=222501480747&categoryNo=243&parentCategoryNo=-1&viewDate=&currentPage=&postListTopCurrentPage=&isAfterWrite=true
+css flex 설명 잘 되어있음.
+https://studiomeal.com/archives/197
+
+21/10/8
+백준 파이썬
+google colab
+
+21/11/13
+def f(x) :
+    if x==1 :
+        return 1
+    else :
+        return x*f(x-1)
+
+def lotto(n, r):
+    # To-do
+    return f(n)/f(n-r)/f(r)
+    
+print(lotto(63,29))
+
+이렇게 하면 결과값에 오차가 생김.
+파이썬에서 실수는 부동소수점 방식으로 나타내기 때문에
+0.3은 0.300000000....4로 근삿값임.
+
+큰 수에서 실수 계산을 하면 오차가 생긴다.
+정수로 계산할 것.
+-> f(n)//f(n-r)//f(r)
+
+21/11/19
+군장병 맞춤형 온라인 엘리스
+
+TypeError: 'Desk' object does not support indexing
+
+desk=Desk([(11, '서울'),(23, '경기'),(37, '강원'),(41, '충청'),(56, '전라'),(62, '경상'),(73, '제주'),(88, '독도')])
+desk=Desk(desk)
+
+여기서 Desk는 클래스
+desk는 객체인데 또 Desk로 객체를 선언하려 해서 오류 발생
+
+문제를 풀면서 crack(a,b,desk)에서 desk를 list로 받아들임.
+def crack(a,b,desk) :
+  desk=Desk(desk) desk를 리스트에서 객체로 변환하는 과정에서 오류 발생
+
+채점 프로그램은 crack 함수 밖에서 desk를 이미 객체로 선언하고 crack(a,b,desk)에 desk를 넣음.
+그러면 desk=Desk(desk)에서 객체 선언 인자를 객체로 사용해서 오류가 발생한 것.
+

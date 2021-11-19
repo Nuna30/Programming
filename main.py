@@ -1,29 +1,33 @@
-M,N=map(int,input().split())
-# print("M,N",M,N)
-board=[]
-for _ in range(M) :
-  board.append(list(i for i in list(input())))
-# print("board",board)
-sol=[]
-for l in range(0,M-7) :
-  # print("l",l)
-  for j in range(0,N-7) :
-    # print("j",j)
-    c1,c2=0,0
-    for k in range(l,l+8) :
-      # print("k",k)
-      for i in range(j,j+8) :
-        # print("i",i)
-        if (k+i)%2==0 :
-          if board[k][i]!='B' :
-            c1+=1
-          else :
-            c2+=1
+from desk_class import Desk
+
+desk=[
+    (11, '서울'),
+    (23, '경기'),
+    (37, '강원'),
+    (41, '충청'),
+    (56, '전라'),
+    (62, '경상'),
+    (73, '제주'),
+    (88, '독도')
+]
+
+def crack(e, n, desk):
+    # To-do
+    desk=Desk(desk)
+    check_list=[1,n//2,n] # 1,4,8
+    k=1
+    for _ in range(10): # 10번만 시도.
+        check,location=desk.open(check_list[k]) # 여러번 여는 걸 방지하기 위해 한 번 열고 정보를 전부 저장
+        
+        if check==e :
+            return location
+        elif check>e : 
+            check_list.append((check_list[k-1]+check_list[k])//2)
+            check_list.sort()
         else :
-          if board[k][i]!='W' :
-            c1+=1
-          else :
-            c2+=1
-    sol.append(min([c1,c2]))
-print(min(sol))
+            check_list.append((check_list[k]+check_list[k+1])//2)
+            check_list.sort()
+            k+=1
+
+print(crack(41,8,desk))
 

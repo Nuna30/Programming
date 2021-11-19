@@ -60,6 +60,7 @@ else :
       break
     a,b=plus(a)
 
+  
 
 # 다른 사람 꺼...
 # a = int(input())
